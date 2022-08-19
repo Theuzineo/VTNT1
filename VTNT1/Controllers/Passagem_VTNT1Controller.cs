@@ -17,14 +17,14 @@ namespace VTNT1.Controllers
         }
 
         [HttpPost]
-        public IActionResult NovaPassagem_VTNT1([FromBody] Passagem_VTNT1_DTO passagem)
+        public IActionResult NovaPassagem_VTNT1([FromBody] CreatePassagem_VTNT1_DTO passagem)
         {
             _ = _passagem_VTNT1Service.NovaPassagem_VTNT1(passagem);
             return Ok();
         }
 
         [HttpGet("{mes}/{ano}")]
-        public IActionResult ResumoPassagem_VTNT1(string mes, string ano)
+        public IActionResult ResumoPassagem_VTNT1(int mes, int ano)
         {
             var resultado = _passagem_VTNT1Service.ResumoPassagem_VTNT1(mes, ano);
             if (resultado == null) return NotFound();

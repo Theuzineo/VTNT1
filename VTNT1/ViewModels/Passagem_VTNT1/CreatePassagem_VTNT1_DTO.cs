@@ -2,7 +2,7 @@
 
 namespace VTNT1.ViewModels.Passagem_VTNT1
 {
-    public class Passagem_VTNT1_DTO
+    public class CreatePassagem_VTNT1_DTO
     {
 
         public DateTime Inicio { get; set; }
@@ -11,9 +11,7 @@ namespace VTNT1.ViewModels.Passagem_VTNT1
 
         public decimal Distancia { get; set; }
 
-        public FaseCafe FaseCafe { get; set; }
-
-
+        public CreateFaseCafe_DTO? FaseCafe { get; set; }
 
     }
 }

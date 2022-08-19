@@ -5,6 +5,9 @@ namespace VTNT1.Models
 {
     public class FaseCafe
     {
+
+        [Key]
+        [Required]
         public int FaseCafeID { get; set; }
 
         public int Verde { get; set; }
@@ -13,13 +16,12 @@ namespace VTNT1.Models
 
         public int Maduro { get; set; }
 
-        public int Passando { get; set; }
+        public int Passado { get; set; }
 
         public int Seco { get; set; }
 
-        
-        [ForeignKey("PassagemID")]
-        public int PassagemID { get; set; }
+
+        public Passagem_VTNT1 Passagem_VTNT1 { get; set; }
 
     }
 }

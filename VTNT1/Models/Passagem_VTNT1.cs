@@ -20,8 +20,8 @@ namespace VTNT1.Models
         public decimal Distancia { get; set; }
 
 
-        [ForeignKey("FaseCafeID")]
-        public FaseCafe? FaseCafe { get; set; }
+        public FaseCafe FaseCafe { get; set; }
+        public int FaseCafeID { get; set; }
 
     }
 }

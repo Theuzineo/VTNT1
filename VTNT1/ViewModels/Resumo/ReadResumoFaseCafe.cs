@@ -1,6 +1,6 @@
-﻿namespace VTNT1.ViewModels.Passagem_VTNT1
+﻿namespace VTNT1.ViewModels.Resumo
 {
-    public class ResumoFaseCafe
+    public class ReadResumoFaseCafe
     {
         public decimal Verde { get; set; }
 

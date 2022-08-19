@@ -1,6 +1,6 @@
-﻿namespace VTNT1.ViewModels.Passagem_VTNT1
+﻿namespace VTNT1.ViewModels.Resumo
 {
-    public class ResumoDTO
+    public class CreateResumoDTO
     {
         public int FaseCafeID { get; set; }
 
@@ -13,8 +13,9 @@
         public int Passando { get; set; }
 
         public int Seco { get; set; }
+
         public int PassagemID { get; set; }
-            
+
         public DateTime Inicio { get; set; }
 
         public DateTime Fim { get; set; }

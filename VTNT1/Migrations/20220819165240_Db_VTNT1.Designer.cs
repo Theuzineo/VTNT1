@@ -12,7 +12,7 @@ using VTNT1.Data;
 namespace VTNT1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220818204900_Db_VTNT1")]
+    [Migration("20220819165240_Db_VTNT1")]
     partial class Db_VTNT1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,10 +38,7 @@ namespace VTNT1.Migrations
                     b.Property<int>("Maduro")
                         .HasColumnType("int");
 
-                    b.Property<int>("PassagemID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Passando")
+                    b.Property<int>("Passado")
                         .HasColumnType("int");
 
                     b.Property<int>("Seco")
@@ -66,7 +63,7 @@ namespace VTNT1.Migrations
                     b.Property<decimal>("Distancia")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("FaseCafeID")
+                    b.Property<int>("FaseCafeID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Fim")
@@ -77,7 +74,8 @@ namespace VTNT1.Migrations
 
                     b.HasKey("PassagemID");
 
-                    b.HasIndex("FaseCafeID");
+                    b.HasIndex("FaseCafeID")
+                        .IsUnique();
 
                     b.ToTable("tb_PassagemsVTNT1");
                 });
@@ -85,10 +83,18 @@ namespace VTNT1.Migrations
             modelBuilder.Entity("VTNT1.Models.Passagem_VTNT1", b =>
                 {
                     b.HasOne("VTNT1.Models.FaseCafe", "FaseCafe")
-                        .WithMany()
-                        .HasForeignKey("FaseCafeID");
+                        .WithOne("Passagem_VTNT1")
+                        .HasForeignKey("VTNT1.Models.Passagem_VTNT1", "FaseCafeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("FaseCafe");
+                });
+
+            modelBuilder.Entity("VTNT1.Models.FaseCafe", b =>
+                {
+                    b.Navigation("Passagem_VTNT1")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

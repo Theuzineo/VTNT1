@@ -9,7 +9,14 @@ namespace VTNT1.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<FaseCafe>()
+                .HasOne(fc => fc.Passagem_VTNT1)
+                .WithOne(p => p.FaseCafe)
+                .HasForeignKey<Passagem_VTNT1>(p => p.FaseCafeID);
+
+
         }
 
         public DbSet<Passagem_VTNT1> tb_PassagemsVTNT1 { get; set; }

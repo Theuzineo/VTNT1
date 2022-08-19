@@ -18,9 +18,8 @@ namespace VTNT1.Migrations
                     Verde = table.Column<int>(type: "int", nullable: false),
                     Amarelo = table.Column<int>(type: "int", nullable: false),
                     Maduro = table.Column<int>(type: "int", nullable: false),
-                    Passando = table.Column<int>(type: "int", nullable: false),
-                    Seco = table.Column<int>(type: "int", nullable: false),
-                    PassagemID = table.Column<int>(type: "int", nullable: false)
+                    Passado = table.Column<int>(type: "int", nullable: false),
+                    Seco = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,7 +35,7 @@ namespace VTNT1.Migrations
                     Inicio = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Fim = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Distancia = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    FaseCafeID = table.Column<int>(type: "int", nullable: true)
+                    FaseCafeID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,13 +44,15 @@ namespace VTNT1.Migrations
                         name: "FK_tb_PassagemsVTNT1_tb_FasesCafe_FaseCafeID",
                         column: x => x.FaseCafeID,
                         principalTable: "tb_FasesCafe",
-                        principalColumn: "FaseCafeID");
+                        principalColumn: "FaseCafeID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_tb_PassagemsVTNT1_FaseCafeID",
                 table: "tb_PassagemsVTNT1",
-                column: "FaseCafeID");
+                column: "FaseCafeID",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
