@@ -23,16 +23,5 @@ namespace VTNT1.Controllers
             return Ok();
         }
 
-        [HttpGet("{mes}/{ano}")]
-        public IActionResult ResumoPassagem_VTNT1(int mes, int ano)
-        {
-            var resultado = _passagem_VTNT1Service.ResumoPassagem_VTNT1(mes, ano);
-            if (resultado == null) return NotFound();
-
-            return Ok(resultado);
-        }
-
-
-
     }
 }

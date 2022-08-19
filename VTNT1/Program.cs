@@ -16,6 +16,7 @@ builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<Passagem_VTNT1Service, Passagem_VTNT1Service>();
+builder.Services.AddScoped<Resumo_VTNT1Service, Resumo_VTNT1Service>();
 
 
 //builder.Services.AddDbContext<BackEnd_Challenge_Alura.Data.AppDbContext>(opt => opt.UseSqlServer(
