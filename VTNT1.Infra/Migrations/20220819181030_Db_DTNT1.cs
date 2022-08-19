@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace VTNT1.Migrations
+namespace VTNT1.Infra.Migrations
 {
-    public partial class Db_VTNT1 : Migration
+    public partial class Db_DTNT1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

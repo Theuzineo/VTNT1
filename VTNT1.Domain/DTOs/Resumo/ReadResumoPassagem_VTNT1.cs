@@ -1,6 +1,10 @@
-﻿using VTNT1.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace VTNT1.ViewModels.Resumo
+namespace VTNT1.Domain.DTOs.Resumo
 {
     public class ReadResumoPassagem_VTNT1
     {
@@ -9,6 +13,5 @@ namespace VTNT1.ViewModels.Resumo
         public decimal DistanciaPercorrido { get; set; }
 
         public ReadResumoFaseCafe PercentagemCafe { get; set; }
-
     }
 }

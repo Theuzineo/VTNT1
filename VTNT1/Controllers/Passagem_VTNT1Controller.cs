@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VTNT1.Services;
-using VTNT1.ViewModels.Passagem_VTNT1;
+using VTNT1.Domain.DTOs.Passagem_VTNT1;
+using VTNT1.Services.Services;
 
 namespace VTNT1.Controllers
 {

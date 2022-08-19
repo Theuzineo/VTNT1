@@ -1,11 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using VTNT1.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using VTNT1.Domain.Models;
 
-namespace VTNT1.Data
+namespace VTNT1.Infra.Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +26,6 @@ namespace VTNT1.Data
 
         public DbSet<Passagem_VTNT1> tb_PassagemsVTNT1 { get; set; }
         public DbSet<FaseCafe> tb_FasesCafe { get; set; }
-        
+
     }
 }

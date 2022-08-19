@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using VTNT1.Data;
+using VTNT1.Infra.Data;
 
 #nullable disable
 
-namespace VTNT1.Migrations
+namespace VTNT1.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace VTNT1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("VTNT1.Models.FaseCafe", b =>
+            modelBuilder.Entity("VTNT1.Domain.Models.FaseCafe", b =>
                 {
                     b.Property<int>("FaseCafeID")
                         .ValueGeneratedOnAdd()
@@ -50,7 +50,7 @@ namespace VTNT1.Migrations
                     b.ToTable("tb_FasesCafe");
                 });
 
-            modelBuilder.Entity("VTNT1.Models.Passagem_VTNT1", b =>
+            modelBuilder.Entity("VTNT1.Domain.Models.Passagem_VTNT1", b =>
                 {
                     b.Property<int>("PassagemID")
                         .ValueGeneratedOnAdd()
@@ -78,18 +78,18 @@ namespace VTNT1.Migrations
                     b.ToTable("tb_PassagemsVTNT1");
                 });
 
-            modelBuilder.Entity("VTNT1.Models.Passagem_VTNT1", b =>
+            modelBuilder.Entity("VTNT1.Domain.Models.Passagem_VTNT1", b =>
                 {
-                    b.HasOne("VTNT1.Models.FaseCafe", "FaseCafe")
+                    b.HasOne("VTNT1.Domain.Models.FaseCafe", "FaseCafe")
                         .WithOne("Passagem_VTNT1")
-                        .HasForeignKey("VTNT1.Models.Passagem_VTNT1", "FaseCafeID")
+                        .HasForeignKey("VTNT1.Domain.Models.Passagem_VTNT1", "FaseCafeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("FaseCafe");
                 });
 
-            modelBuilder.Entity("VTNT1.Models.FaseCafe", b =>
+            modelBuilder.Entity("VTNT1.Domain.Models.FaseCafe", b =>
                 {
                     b.Navigation("Passagem_VTNT1")
                         .IsRequired();

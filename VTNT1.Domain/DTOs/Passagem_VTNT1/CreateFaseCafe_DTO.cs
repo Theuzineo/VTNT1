@@ -1,4 +1,10 @@
-﻿namespace VTNT1.ViewModels.Passagem_VTNT1
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace VTNT1.Domain.DTOs.Passagem_VTNT1
 {
     public class CreateFaseCafe_DTO
     {
@@ -12,7 +18,6 @@
         public int Passando { get; set; }
 
         public int Seco { get; set; }
-
 
     }
 }

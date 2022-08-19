@@ -1,11 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace VTNT1.Models
+namespace VTNT1.Domain.Models
 {
     public class Passagem_VTNT1
     {
-
         [Key]
         [Required]
         public int PassagemID { get; set; }
@@ -22,6 +25,5 @@ namespace VTNT1.Models
 
         public FaseCafe FaseCafe { get; set; }
         public int FaseCafeID { get; set; }
-
     }
 }

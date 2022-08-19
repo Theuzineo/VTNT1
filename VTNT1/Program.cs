@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using VTNT1.Services;
+using VTNT1.Infra.Data;
+using VTNT1.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddDbContext<VTNT1.Data.AppDbContext>(opt => opt.UseSqlServer(
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<Passagem_VTNT1Service, Passagem_VTNT1Service>();

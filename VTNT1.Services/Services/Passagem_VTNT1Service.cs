@@ -1,12 +1,15 @@
-﻿using AutoMapper;
-using FluentResults;
+﻿using FluentResults;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-using VTNT1.Data;
-using VTNT1.Models;
-using VTNT1.ViewModels.Passagem_VTNT1;
-using VTNT1.ViewModels.Resumo;
+using System.Text;
+using System.Threading.Tasks;
+using VTNT1.Domain.DTOs.Passagem_VTNT1;
+using VTNT1.Domain.DTOs.Resumo;
+using VTNT1.Domain.Models;
+using VTNT1.Infra.Data;
 
-namespace VTNT1.Services
+namespace VTNT1.Services.Services
 {
     public class Passagem_VTNT1Service
     {
@@ -26,11 +29,11 @@ namespace VTNT1.Services
                 Distancia = passagem.Distancia,
                 FaseCafe = new FaseCafe()
                 {
-                  Verde = passagem.FaseCafe.Verde,
-                  Amarelo = passagem.FaseCafe.Amarelo,
-                  Maduro = passagem.FaseCafe.Maduro,
-                  Passado = passagem.FaseCafe.Passando,
-                  Seco = passagem.FaseCafe.Seco
+                    Verde = passagem.FaseCafe.Verde,
+                    Amarelo = passagem.FaseCafe.Amarelo,
+                    Maduro = passagem.FaseCafe.Maduro,
+                    Passado = passagem.FaseCafe.Passando,
+                    Seco = passagem.FaseCafe.Seco
                 }
             };
 
@@ -46,7 +49,7 @@ namespace VTNT1.Services
             var teste = date.Year;
 
             var list = (from resumo in _context.tb_PassagemsVTNT1
-                        join cafe in _context.tb_FasesCafe on  resumo.FaseCafeID equals cafe.FaseCafeID
+                        join cafe in _context.tb_FasesCafe on resumo.FaseCafeID equals cafe.FaseCafeID
                         where resumo.Inicio.Year.Equals(ano)
                         && resumo.Inicio.Month.Equals(mes)
                         select new CreateResumoDTO
@@ -63,7 +66,7 @@ namespace VTNT1.Services
                             Total = cafe.Seco + cafe.Amarelo + cafe.Maduro + cafe.Verde + cafe.Passado
                         }).ToList();
             if (list.Count <= 0) return null;
-            
+
 
             var resumoMensal = new ReadResumoPassagem_VTNT1()
             {
@@ -71,14 +74,14 @@ namespace VTNT1.Services
                 TempoPercorrido = list.Sum(t => t.Fim.Hour - t.Inicio.Hour),
                 PercentagemCafe = new ReadResumoFaseCafe()
                 {
-                    Amarelo = getPorcentagemCafeMes(list.Sum(x => x.Total), list.Sum(d => d.Amarelo)), 
+                    Amarelo = getPorcentagemCafeMes(list.Sum(x => x.Total), list.Sum(d => d.Amarelo)),
                     Maduro = getPorcentagemCafeMes(list.Sum(x => x.Total), list.Sum(d => d.Maduro)),
                     Passando = getPorcentagemCafeMes(list.Sum(x => x.Total), list.Sum(d => d.Passando)),
                     Seco = getPorcentagemCafeMes(list.Sum(x => x.Total), list.Sum(d => d.Seco)),
                     Verde = getPorcentagemCafeMes(list.Sum(x => x.Total), list.Sum(d => d.Verde)),
                 }
             };
-            
+
 
             return resumoMensal;
         }
