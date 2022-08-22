@@ -27,6 +27,7 @@ namespace VTNT1.Controllers
 
 
         [HttpGet("{mes}/{ano}")]
+        //[Route("api/resumo")]
         public IActionResult ResumoMensalPassagem_VTNT1(int mes, int ano)
         {
             var resultado = _resumo_VTNT1Service.ResumoMensalPassagem_VTNT1(mes, ano);
