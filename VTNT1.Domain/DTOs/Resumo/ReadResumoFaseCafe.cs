@@ -10,12 +10,10 @@ namespace VTNT1.Domain.DTOs.Resumo
     {
         public decimal Verde { get; set; }
 
-        public decimal Amarelo { get; set; }
+        public decimal Vermelho { get; set; }
 
-        public decimal Maduro { get; set; }
+        public decimal Marrom { get; set; }
 
-        public decimal Passando { get; set; }
-
-        public decimal Seco { get; set; }
+        public decimal Chumbinho { get; set; }
     }
 }

@@ -12,7 +12,7 @@ using VTNT1.Infra.Data;
 namespace VTNT1.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220819181030_Db_DTNT1")]
+    [Migration("20220901121716_Db_DTNT1")]
     partial class Db_DTNT1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,19 +32,16 @@ namespace VTNT1.Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FaseCafeID"), 1L, 1);
 
-                    b.Property<int>("Amarelo")
+                    b.Property<int>("Chumbinho")
                         .HasColumnType("int");
 
-                    b.Property<int>("Maduro")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Passado")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Seco")
+                    b.Property<int>("Marrom")
                         .HasColumnType("int");
 
                     b.Property<int>("Verde")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Vermelho")
                         .HasColumnType("int");
 
                     b.HasKey("FaseCafeID");

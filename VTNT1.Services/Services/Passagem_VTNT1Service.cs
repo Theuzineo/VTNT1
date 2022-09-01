@@ -30,10 +30,9 @@ namespace VTNT1.Services.Services
                 FaseCafe = new FaseCafe()
                 {
                     Verde = passagem.FaseCafe.Verde,
-                    Amarelo = passagem.FaseCafe.Amarelo,
-                    Maduro = passagem.FaseCafe.Maduro,
-                    Passado = passagem.FaseCafe.Passando,
-                    Seco = passagem.FaseCafe.Seco
+                    Vermelho = passagem.FaseCafe.Vermelho,
+                    Marrom = passagem.FaseCafe.Marrom,
+                    Chumbinho = passagem.FaseCafe.Chumbinho
                 }
             };
 

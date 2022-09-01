@@ -20,8 +20,6 @@ namespace VTNT1.Infra.Data
                 .HasOne(fc => fc.Passagem_VTNT1)
                 .WithOne(p => p.FaseCafe)
                 .HasForeignKey<Passagem_VTNT1>(p => p.FaseCafeID);
-
-
         }
 
         public DbSet<Passagem_VTNT1> tb_PassagemsVTNT1 { get; set; }

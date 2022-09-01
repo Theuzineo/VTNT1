@@ -16,10 +16,9 @@ namespace VTNT1.Infra.Migrations
                     FaseCafeID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Verde = table.Column<int>(type: "int", nullable: false),
-                    Amarelo = table.Column<int>(type: "int", nullable: false),
-                    Maduro = table.Column<int>(type: "int", nullable: false),
-                    Passado = table.Column<int>(type: "int", nullable: false),
-                    Seco = table.Column<int>(type: "int", nullable: false)
+                    Vermelho = table.Column<int>(type: "int", nullable: false),
+                    Marrom = table.Column<int>(type: "int", nullable: false),
+                    Chumbinho = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

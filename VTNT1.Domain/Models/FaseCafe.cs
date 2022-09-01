@@ -15,13 +15,11 @@ namespace VTNT1.Domain.Models
 
         public int Verde { get; set; }
 
-        public int Amarelo { get; set; }
+        public int Vermelho { get; set; }
 
-        public int Maduro { get; set; }
+        public int Marrom { get; set; }
 
-        public int Passado { get; set; }
-
-        public int Seco { get; set; }
+        public int Chumbinho { get; set; }
 
 
         public Passagem_VTNT1 Passagem_VTNT1 { get; set; }

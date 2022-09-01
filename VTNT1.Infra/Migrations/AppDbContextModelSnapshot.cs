@@ -30,19 +30,16 @@ namespace VTNT1.Infra.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FaseCafeID"), 1L, 1);
 
-                    b.Property<int>("Amarelo")
+                    b.Property<int>("Chumbinho")
                         .HasColumnType("int");
 
-                    b.Property<int>("Maduro")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Passado")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Seco")
+                    b.Property<int>("Marrom")
                         .HasColumnType("int");
 
                     b.Property<int>("Verde")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Vermelho")
                         .HasColumnType("int");
 
                     b.HasKey("FaseCafeID");
