@@ -40,5 +40,27 @@ namespace VTNT1.Services.Services
             _context.SaveChanges();
             return Result.Ok();
         }
+
+        public ReadPassagem_VTNT1 UltimaPassagem_VTNT1()
+        {
+            var passagem = _context.tb_PassagemsVTNT1.OrderBy(i => i.PassagemID).LastOrDefault();
+            var fase = _context.tb_FasesCafe.FirstOrDefault(f => f.FaseCafeID == passagem.FaseCafeID);
+
+            var ultimaPassagem = new ReadPassagem_VTNT1()
+            {
+                DistanciaPercorrido = passagem.Distancia,
+                TempoPercorrido = passagem.Fim.Hour - passagem.Inicio.Hour,
+                QuatidadeCafe = new ReadPassagemFaseCafe_VTNT1()
+                {
+                    Verde = passagem.FaseCafe.Verde,
+                    Amarelo = passagem.FaseCafe.Amarelo,
+                    Maduro = passagem.FaseCafe.Maduro,
+                    Passando = passagem.FaseCafe.Passado,
+                    Seco = passagem.FaseCafe.Seco
+                }
+            };
+
+            return ultimaPassagem;
+        }
     }
 }

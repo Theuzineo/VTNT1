@@ -17,10 +17,20 @@ namespace VTNT1.Controllers
         }
 
         [HttpPost]
+        //[Route("api/passagem")]
         public IActionResult NovaPassagem_VTNT1([FromBody] CreatePassagem_VTNT1_DTO passagem)
         {
             _ = _passagem_VTNT1Service.NovaPassagem_VTNT1(passagem);
             return Ok();
+        }
+
+        [HttpGet]
+        public IActionResult UltimaPassagem_VTNT1()
+        {
+            var resultado = _passagem_VTNT1Service.UltimaPassagem_VTNT1();
+            if (resultado == null) return NotFound();
+
+            return Ok(resultado);
         }
 
     }

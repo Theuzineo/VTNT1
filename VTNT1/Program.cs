@@ -24,21 +24,28 @@ builder.Services.AddScoped<Resumo_VTNT1Service, Resumo_VTNT1Service>();
 
 
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseSwagger();   
     app.UseSwaggerUI();
 }
+
+//app.UseCors(option =>
+//{
+//    option.WithOrigins("http://localhost:7057c");
+//    option.AllowAnyMethod();
+//    option.AllowAnyHeader();
+//});
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();
 
