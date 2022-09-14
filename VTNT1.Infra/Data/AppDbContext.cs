@@ -19,10 +19,10 @@ namespace VTNT1.Infra.Data
             modelBuilder.Entity<FaseCafe>()
                 .HasOne(fc => fc.Passagem_VTNT1)
                 .WithOne(p => p.FaseCafe)
-                .HasForeignKey<Passagem_VTNT1>(p => p.FaseCafeID);
+                .HasForeignKey<RouteVTNT1>(p => p.FaseCafeID);
         }
 
-        public DbSet<Passagem_VTNT1> tb_PassagemsVTNT1 { get; set; }
+        public DbSet<RouteVTNT1> tb_RouteVTNT1 { get; set; }
         public DbSet<FaseCafe> tb_FasesCafe { get; set; }
 
     }

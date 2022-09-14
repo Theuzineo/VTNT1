@@ -47,7 +47,7 @@ namespace VTNT1.Infra.Migrations
                     b.ToTable("tb_FasesCafe");
                 });
 
-            modelBuilder.Entity("VTNT1.Domain.Models.Passagem_VTNT1", b =>
+            modelBuilder.Entity("VTNT1.Domain.Models.RouteVTNT1", b =>
                 {
                     b.Property<int>("PassagemID")
                         .ValueGeneratedOnAdd()
@@ -72,14 +72,14 @@ namespace VTNT1.Infra.Migrations
                     b.HasIndex("FaseCafeID")
                         .IsUnique();
 
-                    b.ToTable("tb_PassagemsVTNT1");
+                    b.ToTable("tb_RouteVTNT1");
                 });
 
-            modelBuilder.Entity("VTNT1.Domain.Models.Passagem_VTNT1", b =>
+            modelBuilder.Entity("VTNT1.Domain.Models.RouteVTNT1", b =>
                 {
                     b.HasOne("VTNT1.Domain.Models.FaseCafe", "FaseCafe")
                         .WithOne("Passagem_VTNT1")
-                        .HasForeignKey("VTNT1.Domain.Models.Passagem_VTNT1", "FaseCafeID")
+                        .HasForeignKey("VTNT1.Domain.Models.RouteVTNT1", "FaseCafeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace VTNT1.Domain.DTOs.Passagem_VTNT1
 {
-    public class ReadPassagemFaseCafe_VTNT1
+    public class ReadRouteFaseCafeVTNT1
     {
         public decimal Verde { get; set; }
 
-        public decimal Amarelo { get; set; }
+        public decimal Vermelho { get; set; }
 
-        public decimal Maduro { get; set; }
+        public decimal Marrom { get; set; }
 
-        public decimal Passando { get; set; }
-
-        public decimal Seco { get; set; }
+        public decimal Chumbinho { get; set; }
     }
 }

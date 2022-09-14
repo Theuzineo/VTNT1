@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VTNT1.Domain.DTOs.Resumo
 {
-    public class CreateResumoDTO
+    public class CreateSumDTO
     {
         public int FaseCafeID { get; set; }
 

@@ -22,6 +22,6 @@ namespace VTNT1.Domain.Models
         public int Chumbinho { get; set; }
 
 
-        public Passagem_VTNT1 Passagem_VTNT1 { get; set; }
+        public RouteVTNT1 Passagem_VTNT1 { get; set; }
     }
 }

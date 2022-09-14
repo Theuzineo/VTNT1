@@ -7,18 +7,18 @@ namespace VTNT1.Controllers
 
     [ApiController]
     [Route("[controller]")]
-    public class Passagem_VTNT1Controller : ControllerBase
+    public class RouteVTNT1Controller : ControllerBase
     {
-        private Passagem_VTNT1Service _passagem_VTNT1Service;
+        private RouteVTNT1Service _passagem_VTNT1Service;
 
-        public Passagem_VTNT1Controller(Passagem_VTNT1Service passagem_VTNT1Service)
+        public RouteVTNT1Controller(RouteVTNT1Service passagem_VTNT1Service)
         {
             _passagem_VTNT1Service = passagem_VTNT1Service;
         }
 
         [HttpPost]
         //[Route("api/passagem")]
-        public IActionResult NovaPassagem_VTNT1([FromBody] CreatePassagem_VTNT1_DTO passagem)
+        public IActionResult NovaPassagem_VTNT1([FromBody] CreateRouteVTNT1_DTO passagem)
         {
             _ = _passagem_VTNT1Service.NovaPassagem_VTNT1(passagem);
             return Ok();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VTNT1.Domain.DTOs.Resumo
 {
-    public class ReadResumoFaseCafe
+    public class ReadSumFaseCafe
     {
         public decimal Verde { get; set; }
 

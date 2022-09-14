@@ -6,11 +6,11 @@ namespace VTNT1.Controllers
 
     [ApiController]
     [Route("[controller]")]
-    public class Resumo_VTNT1Controller : ControllerBase
+    public class SumVTNT1Controller : ControllerBase
     {
-        private Resumo_VTNT1Service _resumo_VTNT1Service;
+        private SumVTNT1Service _resumo_VTNT1Service;
 
-        public Resumo_VTNT1Controller(Resumo_VTNT1Service resumo_VTNT1Service)
+        public SumVTNT1Controller(SumVTNT1Service resumo_VTNT1Service)
         {
             _resumo_VTNT1Service = resumo_VTNT1Service;
         }

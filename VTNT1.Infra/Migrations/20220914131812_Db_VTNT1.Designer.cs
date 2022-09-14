@@ -12,8 +12,8 @@ using VTNT1.Infra.Data;
 namespace VTNT1.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220901121716_Db_DTNT1")]
-    partial class Db_DTNT1
+    [Migration("20220914131812_Db_VTNT1")]
+    partial class Db_VTNT1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace VTNT1.Infra.Migrations
                     b.ToTable("tb_FasesCafe");
                 });
 
-            modelBuilder.Entity("VTNT1.Domain.Models.Passagem_VTNT1", b =>
+            modelBuilder.Entity("VTNT1.Domain.Models.RouteVTNT1", b =>
                 {
                     b.Property<int>("PassagemID")
                         .ValueGeneratedOnAdd()
@@ -74,14 +74,14 @@ namespace VTNT1.Infra.Migrations
                     b.HasIndex("FaseCafeID")
                         .IsUnique();
 
-                    b.ToTable("tb_PassagemsVTNT1");
+                    b.ToTable("tb_RouteVTNT1");
                 });
 
-            modelBuilder.Entity("VTNT1.Domain.Models.Passagem_VTNT1", b =>
+            modelBuilder.Entity("VTNT1.Domain.Models.RouteVTNT1", b =>
                 {
                     b.HasOne("VTNT1.Domain.Models.FaseCafe", "FaseCafe")
                         .WithOne("Passagem_VTNT1")
-                        .HasForeignKey("VTNT1.Domain.Models.Passagem_VTNT1", "FaseCafeID")
+                        .HasForeignKey("VTNT1.Domain.Models.RouteVTNT1", "FaseCafeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

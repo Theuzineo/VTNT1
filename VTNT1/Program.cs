@@ -15,23 +15,19 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<Passagem_VTNT1Service, Passagem_VTNT1Service>();
-builder.Services.AddScoped<Resumo_VTNT1Service, Resumo_VTNT1Service>();
-
-
-//builder.Services.AddDbContext<BackEnd_Challenge_Alura.Data.AppDbContext>(opt => opt.UseSqlServer(
-//    builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddScoped<RouteVTNT1Service, RouteVTNT1Service>();
+builder.Services.AddScoped<SumVTNT1Service, SumVTNT1Service>();
 
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+//Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();   
+    app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 //app.UseCors(option =>
 //{

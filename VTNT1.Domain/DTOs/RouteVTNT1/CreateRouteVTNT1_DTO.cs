@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VTNT1.Domain.DTOs.Passagem_VTNT1
 {
-    public class CreatePassagem_VTNT1_DTO
+    public class CreateRouteVTNT1_DTO
     {
         public DateTime Inicio { get; set; }
 

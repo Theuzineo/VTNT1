@@ -11,18 +11,18 @@ using VTNT1.Infra.Data;
 
 namespace VTNT1.Services.Services
 {
-    public class Passagem_VTNT1Service
+    public class RouteVTNT1Service
     {
         private AppDbContext _context;
 
-        public Passagem_VTNT1Service(AppDbContext context)
+        public RouteVTNT1Service(AppDbContext context)
         {
             _context = context;
         }
 
-        public Result NovaPassagem_VTNT1(CreatePassagem_VTNT1_DTO passagem)
+        public Result NovaPassagem_VTNT1(CreateRouteVTNT1_DTO passagem)
         {
-            var VTNT1 = new Passagem_VTNT1()
+            var VTNT1 = new RouteVTNT1()
             {
                 Inicio = passagem.Inicio,
                 Fim = passagem.Fim,
@@ -41,22 +41,21 @@ namespace VTNT1.Services.Services
             return Result.Ok();
         }
 
-        public ReadPassagem_VTNT1 UltimaPassagem_VTNT1()
+        public ReadRouteVTNT1 UltimaPassagem_VTNT1()
         {
-            var passagem = _context.tb_PassagemsVTNT1.OrderBy(i => i.PassagemID).LastOrDefault();
+            var passagem = _context.tb_RouteVTNT1.OrderBy(i => i.PassagemID).LastOrDefault();
             var fase = _context.tb_FasesCafe.FirstOrDefault(f => f.FaseCafeID == passagem.FaseCafeID);
 
-            var ultimaPassagem = new ReadPassagem_VTNT1()
+            var ultimaPassagem = new ReadRouteVTNT1()
             {
                 DistanciaPercorrido = passagem.Distancia,
                 TempoPercorrido = passagem.Fim.Hour - passagem.Inicio.Hour,
-                QuatidadeCafe = new ReadPassagemFaseCafe_VTNT1()
+                QuatidadeCafe = new ReadRouteFaseCafeVTNT1()
                 {
                     Verde = passagem.FaseCafe.Verde,
-                    Amarelo = passagem.FaseCafe.Amarelo,
-                    Maduro = passagem.FaseCafe.Maduro,
-                    Passando = passagem.FaseCafe.Passado,
-                    Seco = passagem.FaseCafe.Seco
+                    Vermelho = passagem.FaseCafe.Vermelho,
+                    Marrom = passagem.FaseCafe.Marrom,
+                    Chumbinho = passagem.FaseCafe.Chumbinho
                 }
             };
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VTNT1.Domain.Models
 {
-    public class Passagem_VTNT1
+    public class RouteVTNT1
     {
         [Key]
         [Required]

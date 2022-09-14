@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VTNT1.Infra.Migrations
 {
-    public partial class Db_DTNT1 : Migration
+    public partial class Db_VTNT1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +26,7 @@ namespace VTNT1.Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "tb_PassagemsVTNT1",
+                name: "tb_RouteVTNT1",
                 columns: table => new
                 {
                     PassagemID = table.Column<int>(type: "int", nullable: false)
@@ -38,9 +38,9 @@ namespace VTNT1.Infra.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tb_PassagemsVTNT1", x => x.PassagemID);
+                    table.PrimaryKey("PK_tb_RouteVTNT1", x => x.PassagemID);
                     table.ForeignKey(
-                        name: "FK_tb_PassagemsVTNT1_tb_FasesCafe_FaseCafeID",
+                        name: "FK_tb_RouteVTNT1_tb_FasesCafe_FaseCafeID",
                         column: x => x.FaseCafeID,
                         principalTable: "tb_FasesCafe",
                         principalColumn: "FaseCafeID",
@@ -48,8 +48,8 @@ namespace VTNT1.Infra.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_tb_PassagemsVTNT1_FaseCafeID",
-                table: "tb_PassagemsVTNT1",
+                name: "IX_tb_RouteVTNT1_FaseCafeID",
+                table: "tb_RouteVTNT1",
                 column: "FaseCafeID",
                 unique: true);
         }
@@ -57,7 +57,7 @@ namespace VTNT1.Infra.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "tb_PassagemsVTNT1");
+                name: "tb_RouteVTNT1");
 
             migrationBuilder.DropTable(
                 name: "tb_FasesCafe");

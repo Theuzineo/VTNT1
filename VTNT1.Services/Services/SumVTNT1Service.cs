@@ -4,11 +4,11 @@ using VTNT1.Infra.Data;
 
 namespace VTNT1.Services.Services
 {
-    public class Resumo_VTNT1Service
+    public class SumVTNT1Service
     {
         private AppDbContext _context;
 
-        public Resumo_VTNT1Service(AppDbContext context)
+        public SumVTNT1Service(AppDbContext context)
         {
             _context = context;
         }
@@ -33,17 +33,17 @@ namespace VTNT1.Services.Services
         //    return resumo;
         //}
 
-        public ReadResumoPassagem_VTNT1? ResumoMensalPassagem_VTNT1(int mes, int ano)
+        public ReadSumRouteVTNT1? ResumoMensalPassagem_VTNT1(int mes, int ano)
         {
             var date = DateTime.Now;
 
             var teste = date.Year;
 
-            var list = (from resumo in _context.tb_PassagemsVTNT1
+            var list = (from resumo in _context.tb_RouteVTNT1
                         join cafe in _context.tb_FasesCafe on resumo.FaseCafeID equals cafe.FaseCafeID
                         where resumo.Inicio.Year.Equals(ano)
                         && resumo.Inicio.Month.Equals(mes)
-                        select new CreateResumoDTO
+                        select new CreateSumDTO
                         {
                             Verde = cafe.Verde,
                             Vermelho = cafe.Vermelho,
@@ -58,11 +58,11 @@ namespace VTNT1.Services.Services
             if (list.Count <= 0) return null;
 
 
-            var resumoMensal = new ReadResumoPassagem_VTNT1()
+            var resumoMensal = new ReadSumRouteVTNT1()
             {
                 DistanciaPercorrido = list.Sum(d => d.Distancia),
                 TempoPercorrido = list.Sum(t => t.Fim.Hour - t.Inicio.Hour),
-                PercentagemCafe = new ReadResumoFaseCafe()
+                PercentagemCafe = new ReadSumFaseCafe()
                 {
                     Verde = getPorcentagemCafeMes(list.Sum(x => x.Total), list.Sum(d => d.Verde)),
                     Vermelho = getPorcentagemCafeMes(list.Sum(x => x.Total), list.Sum(d => d.Vermelho)),
